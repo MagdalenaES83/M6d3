@@ -3,6 +3,7 @@ import cors from "cors";
 import sequelize  from "./db/index.js";
 import {connectDB} from "./db/index.js";
 import  Product  from "./db/models/products.js";
+import Review from "./db/models/reviews.js";
 
 
 const server = express();
