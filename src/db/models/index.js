@@ -1,7 +1,7 @@
 import Product  from "./products.js"
 import Review from "./reviews.js"
 
-Product.hasMany(Review)
-Review.belongsTo(Product)
+Product.hasMany(Review)  // create FK
+Review.belongsTo(Product) //checking if Fk already exist
 
-export { Product, Review}
+export default { Product, Review}

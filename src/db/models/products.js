@@ -1,5 +1,6 @@
 import  sequelize  from "../index.js";
 import s from "sequelize";  //WE IMPORT DATA FORMAT 
+//import Review from "./review.js"
 
 
 const { DataTypes } = s; // WE DECONSTRUCT DATA FORMAT TO USE IT IN THE TAB
@@ -17,6 +18,10 @@ const Product = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,                     //IS REQUIRED
     },
+    brand: {
+        type: DataTypes.STRING,
+        allowNull: false,                     //IS REQUIRED
+      },
     category: {
       type: DataTypes.STRING,
       allowNull: false,
