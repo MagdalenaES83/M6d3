@@ -9,6 +9,7 @@ import db from "./db/models/index.js";
 
 import productsRouter from "./crud/products/index.js";
 import reviewsRouter from "./crud/reviews/index.js";
+//import categoryRouter from "./crud/reviews/index.js";
 
 const server = express();
 
