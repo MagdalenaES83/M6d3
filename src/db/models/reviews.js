@@ -17,10 +17,7 @@ const Review = sequelize.define("review", {
     type: DataTypes.TEXT,
     allowNull: false, //IS REQUIRED
   },
-  rate: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
+  
   username: {
     type: DataTypes.STRING,
     allowNull: false,

@@ -4,24 +4,17 @@ import s from "sequelize";
 const { Op } = s;
 const router = express.Router();
 
-const { Users, Review } = db;
+const { User, Cart } = db;
 
 router
   .route("/")
   .get(async (req, res, next) => {
     try {
-      const data = await Users.findAll({ //method from sequelize documentation
+      const data = await User.findAll({ //method from sequelize documentation
       
-        include: Review,   
+        include: Cart,   
+      
         
-        where: req.query.search    //IMPLEMENT A FILTERS FROM MODERN-QUERY-BASIC DOCUMENTATION
-          ? {
-            //   [Op.or]: [
-            //      { name: { [Op.iLike]: `%${req.query.search}%` } }, //iLike looking for string and it is letter sensitive
-            //     { brand: { [Op.iLike]: `%${req.query.search}%` } },                
-            //   ],
-            }
-          : {},
       });
       res.send(data);
     } catch (error) {
@@ -33,7 +26,8 @@ router
   
   .post(async (req, res, next) => {
     try {
-      const data = await Users.create(req.body);
+      const data = await User.create(req.body);
+
       res.send(data);
     } catch (error) {
       console.log(error);
@@ -45,7 +39,7 @@ router
   .route("/:id")
   .get(async (req, res, next) => {
     try {
-      const data = await Users.findByPk(req.params.id);   /// search products using a PK
+      const data = await User.findByPk(req.params.id);   /// search products using a PK
       res.send(data);
     } catch (error) {
       console.log(error);
@@ -54,7 +48,7 @@ router
   })
   .put(async (req, res, next) => {
     try {
-      const data = await Users.update(req.body, {
+      const data = await User.update(req.body, {
         where: {
           id: req.params.id,
         },
@@ -68,7 +62,7 @@ router
   })
   .delete(async (req, res, next) => {
     try {
-      const rows = await Users.destroy({ where: { id: req.params.id } });
+      const rows = await User.destroy({ where: { id: req.params.id } });
       if (rows > 0) {
         res.send("ok");
       } else {

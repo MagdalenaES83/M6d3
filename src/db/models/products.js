@@ -34,9 +34,9 @@ const Product = sequelize.define(
       isUrl: true,
     },
 
-    categoryId:{
-      type: DataTypes.INTEGER,
-    }
+    // categoryId:{
+    //   type: DataTypes.INTEGER,
+    // }
   },
   
 );

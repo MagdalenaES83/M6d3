@@ -17,9 +17,6 @@ router
         
         include: Review,   
         
-        
-        
-        
         //postman ---> /products?name= ....
 
         ///if user provides a query THEN SEARCH IT. 

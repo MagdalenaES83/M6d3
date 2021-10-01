@@ -27,4 +27,22 @@ router.route("/:userId").get(async (req, res, next) => {
   }
 });
 
+
+router.delete(async (req, res, next) => {
+  try {
+    const { userId, productId } = req.params;
+    const rows = await Cart.destroy({
+      where: { userId, productId },
+    });
+    if (rows > 0) {
+      res.send(` Product has been deleted`);
+    } else {
+      res.status(404).send("Not found");
+    }
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+});
+
 export default router;

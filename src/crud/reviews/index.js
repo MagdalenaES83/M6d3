@@ -4,14 +4,14 @@ import s from "sequelize";
 const { Op } = s;
 const router = express.Router();
 
-const { Product, Review } = db;
+const { Product, Review, User } = db;
 
 router
   .route("/")
   .get(async (req, res, next) => {
     try {
       const data = await Review.findAll({ //method from sequelize documentation
-        include: Product,         
+        include: Product, User     ,   
         
       });
       res.send(data);

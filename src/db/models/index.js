@@ -15,13 +15,12 @@ User.hasMany(Review ,  {foreignKey: 'userId'})
 Review.belongsTo(User,  {foreignKey: 'userId'})
 
 
-
-//cart is a pair of productId and 
-User.hasMany(Cart); 
+User.hasMany(Cart); //cart is a pair of productId and 
 Cart.belongsTo(User); 
 
 Product.hasMany(Cart); 
 Cart.belongsTo(Product); 
+
 
 
 //many2many
@@ -33,7 +32,4 @@ User.belongsToMany(Product, { through: { model: Cart, unique: false } });
 Product.belongsToMany(User, { through: { model: Cart, unique: false } }); 
 
 
-
-
-
-export default { Product, Review, User, Category}
+export default { Product, Review, User, Category, Cart}
