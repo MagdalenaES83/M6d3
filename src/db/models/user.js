@@ -11,7 +11,7 @@ const User = sequelize.define(
       type: DataTypes.INTEGER,
       autoIncrement: true,
     },
-    name: {
+    username: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -19,8 +19,7 @@ const User = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    
-    
+        
     email: {
       type: DataTypes.STRING,
       allowNull: false,
